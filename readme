@@ -1,0 +1,14 @@
+[uefi app]
+    i am going to write a uefi-os-loader.
+    [X]build envirenement able to load efi application.
+    [] play enaugh with the boot and run time services.
+    [] get every thing necessary and (memory map, hardware detection and pass it to kernel).
+    [] write time os-loader.
+    [] i need to place the kernel on the disk and then boot it.
+    [] boot my kernel onto it, so i can get runtime services to play with graphics
+
+    improvements:
+    [] make most params changeable and passed by command line
+    [] change to way i compile so that i ll be able to perform correct calling convention
+    [] comment the code.
+    
