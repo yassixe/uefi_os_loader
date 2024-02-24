@@ -2,16 +2,11 @@
 #include <efilib.h>
 
 
-    // IN OUT UINTN                    *MemoryMapSize,
-    // IN OUT EFI_MEMORY_DESCRIPTOR    *MemoryMap,
-    // OUT UINTN                       *MapKey,
-    // OUT UINTN                       *DescriptorSize,
-    // OUT UINT32                      *DescriptorVersion
-
 EFI_STATUS
 EFIAPI
 efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable)
 {
+  
   UINTN                       MemoryMapSize;
   EFI_MEMORY_DESCRIPTOR       MemoryMap;
   UINTN                       MapKey;
@@ -24,5 +19,8 @@ efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable)
   Print(L"year:%d\nmounth:%d\nday:%d\nhour:%d\n",current_time.Year,current_time.Month,current_time.Day,current_time.Hour);
   //let's try to get memory mapping.
   //
+  unsigned long val;
+  asm volatile("mov %%cr0, %0" : "=r" (val));
+  Print(L"cr0: 0x%x\n",val);
   return EFI_SUCCESS;
 }
